@@ -56,15 +56,15 @@ def apply_clearance(cart)
 end
 
 def checkout(cart: [], coupons: [])
-  consolidated = consolidate_cart(cart: cart)
+  cart = consolidate_cart(cart: cart)
   
-  with_coupons = apply_coupons(consolidated, coupons: coupons)
+  cart = apply_coupons(cart: cart, coupons: coupons)
  
-  clearance = apply_clearance(with_coupons)
+  cart = apply_clearance(cart: cart)
  
   prices = []
   
-  clearance.map do |key, value|
+  cart.each do |key, value|
       prices << value[:price] * value[:count]
     #binding.pry
   end
