@@ -82,5 +82,5 @@ def checkout(cart, coupons)
   end
   
   price
-  binding.pry
+  #binding.pry
 end
